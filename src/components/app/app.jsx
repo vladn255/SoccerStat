@@ -4,7 +4,8 @@ import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import {RoutePath} from "../../const.js";
 
 import NotFoundScreen from "../not-found/not-found.jsx";
-import LeaguesList from "../leagues-list/leagues-list.jsx"
+import LeaguesList from "../leagues-list/leagues-list.jsx";
+import TeamsList from "../teams-list/teams-list.jsx";
 
 
 const App = () => {
@@ -16,12 +17,12 @@ const App = () => {
       }}>
       </Route>
 
-      {/* <Route exact path={RoutePath.TEAMS_LIST} render={() => {
+      <Route exact path={RoutePath.TEAMS_LIST} render={() => {
         return <TeamsList />;
       }}>
       </Route>
 
-      <Route exact path={RoutePath.LEAGUES_CALENDAR} render={() => {
+      {/* <Route exact path={RoutePath.LEAGUES_CALENDAR} render={() => {
         return <LeaguesCalendar />;
       }}>
       </Route>

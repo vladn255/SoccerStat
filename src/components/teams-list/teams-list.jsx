@@ -1,9 +1,9 @@
 import React from 'react';
 
 import HeaderNav from "../header-nav/header-nav.jsx";
-import LeaguesItems from "../leagues-items/leagues-items.jsx"
+import TeamsItems from "../teams-items/teams-items.jsx"
 
-const LeaguesList = () => {
+const TeamsList = () => {
   return (
     <>
   <header className="header">
@@ -13,13 +13,13 @@ const LeaguesList = () => {
 
   <main className="main">
     <div className="input-group mb-3">
-      <input type="text" className="form-control" placeholder="League name" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+      <input type="text" className="form-control" placeholder="Team name" aria-label="Recipient's username" aria-describedby="basic-addon2" />
       <div className="input-group-append">
         <button type="button" className="btn btn-outline-secondary">Search</button>
       </div>
     </div>
 
-    <LeaguesItems />
+    <TeamsItems />
 
     <button type="button" className="btn btn-primary btn-sm">Next</button>
   </main>
@@ -31,4 +31,4 @@ const LeaguesList = () => {
   )
 };
 
-export default LeaguesList;
+export default TeamsList;

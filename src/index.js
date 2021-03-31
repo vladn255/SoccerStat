@@ -9,6 +9,7 @@ import App from './components/app/app';
 
 import reducer from './store/reducer.js';
 import { createAPI } from './services/api.js';
+import { fetchLeagues, fetchTeams } from './store/api-actions';
 
 const api = createAPI();
 const store = createStore(
@@ -17,6 +18,9 @@ const store = createStore(
     applyMiddleware(thunk.withExtraArgument(api))
   )
 );
+
+store.dispatch(fetchLeagues());
+store.dispatch(fetchTeams());
 
 ReactDOM.render(
   <Provider store={store}>

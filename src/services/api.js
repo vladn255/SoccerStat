@@ -6,7 +6,7 @@ const REQUEST_TIMEOUT = 5000;
 export const createAPI = () => {
   const api = axios.create({
     headers: {
-      'X-Auth-Token': `3f1f6424a2e24c3d9aece37e48d87b16`
+      'X-Auth-Token': '3f1f6424a2e24c3d9aece37e48d87b16'
     },
     baseURL: URL,
     timeout: REQUEST_TIMEOUT,

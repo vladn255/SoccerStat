@@ -5,6 +5,15 @@ const RoutePath = {
   TEAMS_CALENDAR: `/teams_calendar`
 };
 
+const PLAN = `TIER_ONE`;
+
+const ListTypes = {
+  LEAGUE: `League`,
+  TEAM: `Team`
+}
+
 export {
-  RoutePath
+  RoutePath,
+  PLAN,
+  ListTypes
 }

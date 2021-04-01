@@ -9,7 +9,7 @@ import App from './components/app/app';
 
 import reducer from './store/reducer.js';
 import { createAPI } from './services/api.js';
-import { fetchLeagues, fetchTeams } from './store/api-actions';
+import { fetchLeagues, fetchTeams, fetchLeagueSeason } from './store/api-actions';
 
 const api = createAPI();
 const store = createStore(

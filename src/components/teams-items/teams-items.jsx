@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import LoadingScreen from "../loading-screen/loading-screen.jsx";
 import TeamItem from "../team-item/team-item.jsx";
 
-const TeamsItems = ({teamsList}) => {
+const TeamsItems = ({teamsList, activeTeam}) => {
 
   if (teamsList.length === 0) {
     return <LoadingScreen />;
@@ -13,17 +13,19 @@ const TeamsItems = ({teamsList}) => {
 
   return (
     <ul className="list-group">
-      {teamsList.map((team) => <TeamItem key={team.toString()} teamName={team}/>)}
+      {teamsList.map((team) => <TeamItem key={team.id.toString()} teamName={team.name} activeTeamName={activeTeam.name}/>)}
     </ul>
   )
 };
 
 TeamsItems.propTypes = {
-  teamsList: PropTypes.array.isRequired
+  teamsList: PropTypes.array.isRequired,
+  activeTeam: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({teamsList}) => ({
-  teamsList
+const mapStateToProps = ({teamsList, activeTeam}) => ({
+  teamsList,
+  activeTeam
 });
 
 export default connect(mapStateToProps)(TeamsItems);

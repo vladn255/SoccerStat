@@ -4,7 +4,11 @@ const initialState = {
   leaguesList: [],
   teamsList: [],
   leagueCalendar: [],
-  teamCalendar: []
+  teamCalendar: [],
+  activeLeague: { name: `` },
+  activeTeam: { name: `` },
+  activeSeason: `Current`,
+  filteredMatches: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,13 +16,15 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_LEAGUES_LIST:
       return {
         ...state,
-        leaguesList: action.payload
+        leaguesList: action.payload,
+        activeLeague: action.payload[0]
       };
 
     case ActionType.LOAD_TEAMS_LIST:
       return {
         ...state,
-        teamsList: action.payload
+        teamsList: action.payload,
+        activeTeam: action.payload[0]
       };
 
     case ActionType.LOAD_LEAGUE_CALENDAR:
@@ -32,6 +38,40 @@ const reducer = (state = initialState, action) => {
         ...state,
         teamCalendar: action.payload
       };
+
+    case ActionType.SET_ACTIVE_LEAGUE:
+      let activeLeague = state.leaguesList.filter((league) => league.name === action.payload)[0];
+      if (activeLeague === undefined) {
+        activeLeague = { name: `` };
+      }
+
+      return {
+        ...state,
+        activeLeague
+      };
+
+    case ActionType.SET_ACTIVE_TEAM:
+      let activeTeam = state.teamsList.filter((team) => team.name === action.payload)[0];
+      if (activeTeam === undefined) {
+        activeTeam = { name: `` };
+      }
+
+      return {
+        ...state,
+        activeTeam
+      };
+
+    case ActionType.SET_ACTIVE_SEASON:
+      return {
+        ...state,
+        activeSeason: action.payload
+      };
+
+    case ActionType.SET_FILTERD_SEASON:
+      return {
+        ...state,
+        filteredMatches: action.payload
+      }
   }
 
   return state;

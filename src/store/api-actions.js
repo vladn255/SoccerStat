@@ -4,7 +4,6 @@ import { PLAN } from "../const.js"
 const fetchLeagues = () => (dispatch, _getState, api) => (
   api.get(`/competitions?plan=${PLAN}`)
     .then(({ data: { competitions } }) => {
-      console.log(competitions)
       dispatch(ActionCreator.loadLeaguesList(competitions));
     })
     .catch((err) => console.log(err))
@@ -21,24 +20,24 @@ const fetchTeams = () => (dispatch, _getState, api) => (
 const fetchLeagueSeason = (league, year) => (dispatch, _getState, api) => {
   api.get(`competitions/${league}/matches?season=${year}&$plan=${PLAN}`)
     .then(({ data: { matches } }) => {
-      console.log(matches);
       dispatch(ActionCreator.loadLeagueCalendar(matches));
     })
     .catch((err) => console.log(err))
 }
 
-const fetchLeagueMatchesFiltered = (league, dateRange) => (dispatch, _getState, api) => {
-  api.get(`competitions/${league}/matches?dateFrom=2019-06-22&$plan=${PLAN}`)
+const fetchTeamSeason = (teamId, year) => (dispatch, _getState, api) => {
+  api.get(`teams/${teamId}/matches?season=${year}&$plan=${PLAN}`)
     .then(({ data: { matches } }) => {
       console.log(matches);
-      dispatch(ActionCreator.setFilteredSeason(matches));
+      dispatch(ActionCreator.loadTeamCalendar(matches));
     })
     .catch((err) => console.log(err))
 }
+
 
 export {
   fetchLeagues,
   fetchTeams,
   fetchLeagueSeason,
-  fetchLeagueMatchesFiltered
+  fetchTeamSeason
 };

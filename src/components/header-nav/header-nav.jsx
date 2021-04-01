@@ -16,7 +16,7 @@ const HeaderNav = () => {
         <Link to={RoutePath.LEAGUES_CALENDAR} className="nav-link" >League calendar</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Team calendar</a>
+        <Link to={RoutePath.TEAMS_CALENDAR} className="nav-link">Team calendar</Link>
       </li>
     </ul>
   )

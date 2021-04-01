@@ -7,6 +7,7 @@ import NotFoundScreen from "../not-found/not-found.jsx";
 import LeaguesList from "../leagues-list/leagues-list.jsx";
 import TeamsList from "../teams-list/teams-list.jsx";
 import LeagueCalendar from "../league-calendar/league-calendar.jsx";
+import TeamCalendar from "../team-calendar/team-calendar.jsx";
 
 
 const App = () => {
@@ -28,10 +29,10 @@ const App = () => {
       }}>
       </Route>
 
-      {/* <Route exact path={RoutePath.TEAMS_CALENDAR} render={() => {
-        return <TeamsCalendar />;
+      <Route exact path={RoutePath.TEAMS_CALENDAR} render={() => {
+        return <TeamCalendar />;
       }}>
-      </Route> */}
+      </Route>
 
       <Route>
         <NotFoundScreen />

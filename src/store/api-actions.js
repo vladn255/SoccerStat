@@ -28,7 +28,6 @@ const fetchLeagueSeason = (league, year) => (dispatch, _getState, api) => {
 const fetchTeamSeason = (teamId, year) => (dispatch, _getState, api) => {
   api.get(`teams/${teamId}/matches?season=${year}&$plan=${PLAN}`)
     .then(({ data: { matches } }) => {
-      console.log(matches);
       dispatch(ActionCreator.loadTeamCalendar(matches));
     })
     .catch((err) => console.log(err))

@@ -3,7 +3,11 @@ env:
   browser: true
   commonjs: true
 
-extends: ['plugin:react/recommended']
+extends: [
+  'plugin:react/recommended',
+  'react-app',
+  'prettier'
+  ]
 
 parserOptions:
   ecmaFeatures:
@@ -11,7 +15,10 @@ parserOptions:
   ecmaVersion: 2018
   sourceType: module
 
-plugins: ['react']
+plugins: [
+  'react',
+  'prettier'
+  ]
 
 settings:
   react:

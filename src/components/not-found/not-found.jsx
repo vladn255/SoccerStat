@@ -1,6 +1,6 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {RoutePath} from "../../const.js";
+import React from "react";
+import { Link } from "react-router-dom";
+import { RoutePath } from "../../const.js";
 
 const NotFound = () => {
   return (
